@@ -17,4 +17,4 @@ services:
      PGUID: 1000
      TZ: America/New_York
 volumes:
-  mealie-data
+  mealie-data:
