@@ -1,5 +1,4 @@
 services:
-
   ghost:
     image: ghost:5-alpine
     restart: always
