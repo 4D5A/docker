@@ -10,9 +10,9 @@ services:
     volumes:
       - /opt/docker/volumes/pgdata:/var/lib/postgresql
     environment:
-      POSTGRES_DB: paperlessdb
-      POSTGRES_USER: paperless
-      POSTGRES_PASSWORD: paperless
+      POSTGRES_DB: ${POSTGRES_DB}
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
   paperlesswebserver:
     image: ghcr.io/paperless-ngx/paperless-ngx:latest
     restart: unless-stopped
@@ -27,10 +27,8 @@ services:
       - /opt/docker/volumes/export:/usr/src/paperless/export
       - /opt/docker/volumes/consume:/usr/src/paperless/consume
     environment:
-      PAPERLESS_REDIS: redis://paperlessbroker:6379
-      PAPERLESS_DBHOST: paperlessdb
-    env_file:
-      - stack.env
+      PAPERLESS_REDIS: ${PAPERLESS_REDIS}
+      PAPERLESS_DBHOST: ${PAPERLESS_DBHOST}
 volumes:
   data:
   media:
