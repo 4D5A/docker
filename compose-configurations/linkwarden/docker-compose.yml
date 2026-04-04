@@ -7,7 +7,7 @@ services:
       - POSTGRES_USER=postgres
       - POSTGRES_DB=postgres
     volumes:
-      - /opt/docker/volumes/pgdata:/var/lib/postgresql/data
+      - /opt/docker/volumes/linkwarden-pgdata:/var/lib/postgresql/data
 
   linkwarden:
     environment:
@@ -19,7 +19,7 @@ services:
     ports:
     - 3000:3000
     volumes:
-      - /opt/docker/volumes/data:/data/data
+      - /opt/docker/volumes/linkwarden-data:/data/data
     depends_on:
       - postgres
 

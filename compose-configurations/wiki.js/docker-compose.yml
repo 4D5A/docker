@@ -9,7 +9,7 @@ services:
       driver: none
     restart: unless-stopped
     volumes:
-      - /opt/docker/volumes/db-data:/var/lib/postgresql/data
+      - /opt/docker/volumes/wiki-js-db-data:/var/lib/postgresql/data
 
   wiki:
     image: ghcr.io/requarks/wiki:2
@@ -19,9 +19,9 @@ services:
       DB_TYPE: ${DB_TYPE}
       DB_HOST: ${DB_HOST}
       DB_PORT: ${DB_PORT}
-      DB_USER: ${DB_USER}
-      DB_PASS: ${DB_PASS}
-      DB_NAME: ${DB_NAME}
+      DB_USER: ${POSTGRES_USER}
+      DB_PASS: ${POSTGRES_PASSWORD}
+      DB_NAME: ${POSTGRES_DB}
     restart: unless-stopped
     ports:
       - "9926:3000"
